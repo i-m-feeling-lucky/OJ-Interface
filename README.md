@@ -17,14 +17,23 @@
     cd static
     npm install
 
+安装依赖
+
+    pipenv install
+
 进入虚拟环境
 
-    source ./env/bin/activate
+    pipenv shell
+    cd Interface
 
 运行django项目
 
     python manage.py runserver
 
+在生产环境中运行
+
+    cd Interface
+    pipenv run gunicorn Interface.wsgi
 
 ## 接口说明
 
