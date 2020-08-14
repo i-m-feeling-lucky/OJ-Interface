@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Monaco Editor Demo</title>
+    <link rel="stylesheet" href='/static/style.css' type="text/css">
+    <script src="/static/node_modules/requirejs/require.js"></script>
+    <script src="/static/app.js"></script>
+    <script src="/static/node_modules/monaco-editor/min/vs/loader.js"></script>
+</head>
+
+<body>
+<form method="post" action="/result">
+    <!-- {% csrf_token %} -->
+    <div id="header">Monaco Editor
+            <select class="language" id="lang" name="lang">
+                <option selected>c</option>
+                <option>cpp</option>
+                <option>python</option>
+            </select>
+            <textarea name="input" style="position:relative; top:5px;">input</textarea>
+            <button type="submit" id="submit">Submit</button>
+    </div>
+
+    <div id="root" class="container">
+        <div id="EditorArea" class="container">
+
+        </div>
+        <textarea id="code" name="code" hidden></textarea>
+    </div>
+
+</form>
+</body>
+
+</html>
