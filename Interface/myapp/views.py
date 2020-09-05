@@ -54,6 +54,7 @@ def result(request):
         code = request.POST['code']
         data_input = request.POST['input']
         time_limit = request.POST['time_limit']
+        memory_limit = request.POST['memory_limit']
 
         # TODO: Change the parameters as you want
         # RUN_DIR - directory in the host to save code as temporary file posted from web,
@@ -64,6 +65,9 @@ def result(request):
         # replace aimed to change windows style into linux style
         TIME_LIMIT_C = str(time_limit * 0.001) + 's'
         TIME_LIMIT_PY = str(time_limit * 0.001) + 's'
+        
+        # dummy memory limit
+        MEMORY_LIMIT = str(memory) + 'KB'
 
         message_dict = {
             0: 'Run Success',
