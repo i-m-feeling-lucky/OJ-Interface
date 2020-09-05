@@ -63,11 +63,11 @@ def result(request):
         # TIME_LIMIT - time limit for the program, unit (s)
         RUN_DIR = os.getcwd().replace('\\', '/') + '/.temp/'
         # replace aimed to change windows style into linux style
-        TIME_LIMIT_C = str(time_limit * 0.001) + 's'
-        TIME_LIMIT_PY = str(time_limit * 0.001) + 's'
+        TIME_LIMIT_C = str(int(time_limit) * 0.001) + 's'
+        TIME_LIMIT_PY = str(int(time_limit) * 0.001) + 's'
         
         # dummy memory limit
-        MEMORY_LIMIT = str(memory) + 'KB'
+        MEMORY_LIMIT = str(memory_limit) + 'KB'
 
         message_dict = {
             0: 'Run Success',
