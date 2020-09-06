@@ -7,6 +7,7 @@ import docker
 import os
 import time
 import re
+import json
 
 
 # Create your views here.
@@ -50,11 +51,13 @@ def save_file(code, lang, directory, filename):
 
 def result(request):
     if request.method == 'POST':
-        lang = request.POST['lang']
-        code = request.POST['code']
-        data_input = request.POST['input']
-        time_limit = request.POST['time_limit']
-        memory_limit = request.POST['memory_limit']
+        post_data = json.loads(request.body.decode())
+        
+        lang = post_data['lang']
+        code = post_data['code']
+        data_input = post_data['input']
+        time_limit = post_data['time_limit']
+        memory_limit = post_data['memory_limit']
 
         # TODO: Change the parameters as you want
         # RUN_DIR - directory in the host to save code as temporary file posted from web,
